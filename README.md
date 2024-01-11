@@ -2,6 +2,10 @@
 
 Este proyecto tiene como objetivo planificar el vuelo de un dron que llegue hasta los puntos donde hay malezas y aplique un herbicida. Se logra utilizando un grafo para representar la disposición de los cultivos, malezas y barreras en el terreno.
 
+### Autores:
+- **Bottini, Franco Nicolas**
+- **Robledo, Valentin**
+
 ## Desarrollo
 
 ### Clases Implementadas
