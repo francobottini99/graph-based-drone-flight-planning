@@ -1,37 +1,37 @@
-# Planificación de Vuelo para Fumigación
+# Flight Planning for Fumigation
 
-Este proyecto tiene como objetivo planificar el vuelo de un dron que llegue hasta los puntos donde hay malezas y aplique un herbicida. Se logra utilizando un grafo para representar la disposición de los cultivos, malezas y barreras en el terreno.
+This project aims to plan the flight path of a drone to reach locations with weeds and apply herbicide. It achieves this by using a graph to represent the layout of crops, weeds, and obstacles within the terrain.
 
-### Autores:
-- **Bottini, Franco Nicolas**
-- **Robledo, Valentin**
+### Authors:
+- **Franco Nicolas Bottini**
+- **Valentin Robledo**
 
-## Desarrollo
+## Development
 
-### Clases Implementadas
+### Implemented Classes
 
-1. **`Map`**: Genera mapas aleatorios que contienen cultivos, malezas y barreras. La generación respeta ciertas condiciones, como la creación de malezas cuadradas o rectangulares. Proporciona una representación gráfica del problema.
+1. **`Map`**: Generates random maps containing crops, weeds, and obstacles. The generation follows certain rules, such as ensuring square or rectangular patches of weeds. It provides a graphical representation of the problem.
 
-2. **`Drone`**: Dibuja el dron dentro del mapa y se encarga de todos los movimientos, incluyendo la etapa de fumigación.
+2. **`Drone`**: Draws the drone within the map and manages all movements, including the fumigation phase.
 
-3. **`Filter`**: Permite identificar grupos de malezas de tamaño mayor o igual a 3x3, generando una lista que contiene cada grupo. También proporciona una lista de barreras.
+3. **`Filter`**: Identifies weed clusters that are at least 3x3 in size, generating a list containing each cluster. It also provides a list of obstacles.
 
-4. **`Graph`**: Crea un grafo donde cada nodo son grupos de malezas, y los vértices que unen esos nodos representan posibles conexiones entre grupos, siempre y cuando no haya barreras de por medio.
+4. **`Graph`**: Creates a graph where each node represents a cluster of weeds, and edges between nodes represent possible connections between clusters, as long as no obstacles lie in between.
 
-### Algoritmo de Ciclo Hamiltoniano
+### Hamiltonian Cycle Algorithm
 
-Implementamos un algoritmo heurístico para encontrar el Ciclo Hamiltoniano en el grafo. El proceso sigue estos pasos:
+We implemented a heuristic algorithm to find a Hamiltonian Cycle within the graph. The process follows these steps:
 
-1. Partimos desde el inicio hacia el nodo cuya arista tiene el menor peso.
-2. Marcamos la arista como visitada y repetimos el proceso hasta que todos los nodos hayan sido visitados, asegurándonos de que el nodo final del recorrido tenga conexión con el inicial.
-3. Esta solución retorna un Ciclo Hamiltoniano, aunque no asegura ser el más óptimo.
+1. Starting from the initial node, move to the node with the lowest-weight edge.
+2. Mark the edge as visited and repeat the process until all nodes have been visited, ensuring that the final node in the path is connected back to the starting node.
+3. This approach yields a Hamiltonian Cycle, though it does not guarantee optimality.
 
-## Representación Gráfica
+## Graphical Representation
 
-En la representación gráfica del problema:
+In the graphical representation of the problem:
 
-- El color verde representa a los cultivos.
-- El color amarillo representa las malezas.
-- El color rojo representa las barreras.
-- El color verde en cuadros representa las malezas fumigadas.
-- El punto en color gris es el dron.
+- Green represents crops.
+- Yellow represents weeds.
+- Red represents obstacles.
+- Green squares indicate fumigated weeds.
+- The gray dot represents the drone.
